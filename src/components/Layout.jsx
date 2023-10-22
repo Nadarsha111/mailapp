@@ -1,4 +1,4 @@
-import Homepage from './Home/homepage'
+import Homepage from './Homepage'
 import Filter from './Filter/filter'
 import styles from './Layout.module.css'
 
