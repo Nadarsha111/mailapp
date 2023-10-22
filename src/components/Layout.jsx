@@ -1,5 +1,5 @@
-import Homepage from './Homepage'
 import Filter from './Filter/filter'
+import Homepage from './Home/homepage'
 import styles from './Layout.module.css'
 
 const Layout = () => {
