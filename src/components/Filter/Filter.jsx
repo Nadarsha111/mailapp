@@ -1,12 +1,26 @@
 import React, { useState } from 'react';
 import styles from './Filter.module.css';
+import { useSelector } from 'react-redux';
 
 const Filter = () => {
+
+const favorites=useSelector((state)=>state.fav);
   const tabs = ["Unread", "Read", "Favorites"];
   const [activeTab, setActiveTab] = useState(tabs[0]);
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
+    switch(tab){
+      case "Unread":
+        break;
+      case "Read":
+        break;
+      case "Favorites":
+            
+        break;
+      default:
+        break;
+    }
   };
 
   return (

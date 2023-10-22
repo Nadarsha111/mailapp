@@ -1,14 +1,22 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Slave.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { addfav } from "../../redux/slice";
 
-const Slave = ({ id, subject, name, date }) => {
+const Slave = ({email}) => {
+// njnj
+// id={selectedEmail.id} name={selectedEmail.from.name} subject={selectedEmail.subject} date={selectedEmail.date}
+// kkk
+  const dipatch=useDispatch();
+  const favorites=useSelector((state)=>state.fav);
+const fav=!!favorites.find((item)=>item.id===email.id);
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setIsLoading(true);
 
-    fetch(`https://flipkart-email-mock.now.sh/?id=${id}`)
+    fetch(`https://flipkart-email-mock.now.sh/?id=${email.id}`)
       .then((res) => {
         setIsLoading(false);
 
@@ -25,7 +33,7 @@ const Slave = ({ id, subject, name, date }) => {
       .catch((error) => {
         console.error("Error fetching data:", error);
       });
-  }, [id]);
+  }, [email.id]);
 
   return (
     <div>
@@ -36,14 +44,16 @@ const Slave = ({ id, subject, name, date }) => {
           <header>
             <div className={styles.headercontent}>
               <span className={styles.nameletter}>
-                {name.charAt(0).toUpperCase()}
+                {email.from.name.charAt(0).toUpperCase()}
               </span>
               <div>
-                <h2>{subject}</h2>
-                <span>{date}</span>
+                <h2>{email.subject}</h2>
+                <span>{email.date}</span>
               </div>
             </div>
-            <button className={styles.button}>Mark as favorites</button>
+            <button className={styles.button}
+            onClick={()=>dipatch(addfav(email))}
+            >{fav?"favorite":"Mark as favorite"}</button>
           </header>
 
           <div dangerouslySetInnerHTML={{ __html: data?.body }} />
