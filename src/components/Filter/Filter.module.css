@@ -1,0 +1,43 @@
+.tabs {
+      display: flex;
+      align-items: center;
+      color: black;
+      font-size: 16px;
+}
+.button {
+      border: none;
+      padding: 10px;
+      color: black;
+      text-align: center;
+      font-size: 16px;
+      margin: 4px 2px;
+      width: 90px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      background-color: transparent;
+      /* Set the default background to transparent */
+}
+
+.activeButton {
+      border: none;
+      padding: 10px;
+      color: black;
+      text-align: center;
+      font-size: 16px;
+      margin: 4px 2px;
+      border-radius: 50px;
+      cursor: pointer;
+      background-color: #E1E4EA;
+      transition: background-color 0.3s;
+}
+
+.button:hover {
+      background-color: #E1E4EA;
+      /* Change the background color on hover */
+}
+
+.activeButton:hover {
+      background-color: #E1E4EA;
+      /* Change the background color on hover */
+}
